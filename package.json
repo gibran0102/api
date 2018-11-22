@@ -2,7 +2,7 @@
   "name": "api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --w --colors",
@@ -26,8 +26,11 @@
     "webpack-cli": "^3.1.2"
   },
   "dependencies": {
+    "@types/socket.io-client": "^1.4.32",
     "express": "^4.16.4",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "socket.io": "^2.1.1",
+    "socket.io-client": "^2.1.1"
   }
 }

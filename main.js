@@ -5,8 +5,12 @@ import ConnectDB from './db/index'
 
 const bodyParser = require('body-parser')
 
+
+
+
 const PORT = process.env.PORT || 8080
 const app = Express()
+
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())

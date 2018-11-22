@@ -1,42 +1,29 @@
 import React from 'react'
 
+import { getBooks } from '../utils'
 import List from '../components/booklist'
 
-class BookList extends React.Component {
+class BookList extends React.PureComponent {
     constructor(props){
         super(props)
         this.state = {
-            books :[]
+            books: []
         }
-
-        this.request = this.request.bind(this)
-    }
-    
-    componentDidMount(){
-        this.request()
     }
 
-    
-
-    shouldComponentUpdate(nextProps, nextState){
-        if(nextState.books != this.state.books)
-            this.request()
-            return true
-        return false
+    componentWillMount() {
+        this.fetchBook()
     }
 
-    request() {
-        let is = this
+
+    fetchBook() {
+        let _this = this
         fetch('./api/books/all')
-        .then(function(response) {
-            return response.json()
-        })
+        .then(function(res) { return res.json() })
         .then(function(data) {
-            is.setState({books: data})
+            return _this.setState({books: data})
         })
     }
-
-
 
     render() {
         return(

@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 
+import { saveBook } from '../utils'
+
 class Form extends Component {
     constructor(props){
         super(props)
         this.state = {}
         this.hanldeFetch = this.hanldeFetch.bind(this)
         this.hanldeChange = this.hanldeChange.bind(this)
+        
     }
 
     hanldeChange(event){
@@ -13,20 +16,11 @@ class Form extends Component {
         this.setState({[target]: event.target.value})
     }
     
-    hanldeFetch(e) {
-        let url = './api/books/new'
-        e.preventDefault()
-        fetch(url, {
-            method: 'POST', 
-            body: JSON.stringify({'title': this.state.title, 'author': this.state.author}), 
-            headers:{
-              'Content-Type': 'application/json'
-            }
-        }).then(res => res.json())
-        .catch(error => console.error('Error:', error))
-        .then(response => console.log('Success:', response));
+    hanldeFetch(e){
+        let { title, author } = this.state
+        saveBook(title, author)
+        this.forceUpdate()
     }
-    
 
     render() {
         return(

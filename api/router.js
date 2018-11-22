@@ -13,11 +13,12 @@ router.post('/books/new', (req, res) => {
 })
 
 router.post('/books/delete', (req, res) => {
-    let { title } = req.body
-    Book.deleteOne({ title: title } ,function(err) {
+    let { id } = req.body
+    console.log(id)
+    Book.deleteOne({ _id: id } ,function(err) {
         if (err) return console.err(err)
         res.status(200)
-        res.send(`${title} delete on the data base`)
+        res.send(`${id} delete on the data base`)
         res.end()
     })
 })
