@@ -7,7 +7,7 @@ router.post('/books/new', (req, res) => {
     let { title, author } = req.body
     let book = new Book({title: title, author: author})
     book.save().then(() => console.log('book save'))
-    res.send('Ok!!!')
+    res.json('ok')
     res.status(200)
     res.end()
 })
@@ -27,7 +27,7 @@ router.get('/books/all', (req, res) => {
     Book.find(function(err, books) {
         if (err) return console.err(err)
         res.status(200)
-        res.send({data: books})
+        res.send(books)
         res.end()
     })
 })
