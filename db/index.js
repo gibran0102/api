@@ -9,7 +9,7 @@ function ConnectDB(){
         let db = connection;
         db.on('error', console.error.bind(console, 'connection error: '));
         db.once('open', function() {
-            console.log('connection with data base')
+            console.log('connection with database')
         })
     } catch (error) {
         console.log(err)
