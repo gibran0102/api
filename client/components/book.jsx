@@ -12,6 +12,7 @@ class List extends Component{
 
     hanldeRemove(e) {
         let id = e.target.id
+        e.preventDefault()
         deleteBook(id)   
     }
 

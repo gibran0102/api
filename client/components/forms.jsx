@@ -3,12 +3,12 @@ import React, { Component } from 'react'
 import { saveBook } from '../utils'
 
 class Form extends Component {
+    
     constructor(props){
         super(props)
         this.state = {}
         this.hanldeFetch = this.hanldeFetch.bind(this)
         this.hanldeChange = this.hanldeChange.bind(this)
-        
     }
 
     hanldeChange(event){
@@ -19,7 +19,6 @@ class Form extends Component {
     hanldeFetch(e){
         let { title, author } = this.state
         saveBook(title, author)
-        this.forceUpdate()
     }
 
     render() {
@@ -27,7 +26,7 @@ class Form extends Component {
             <form>
                 <input name="title" id="title" type="text" placeholder="title" onChange={this.hanldeChange}/>
                 <input name="author" id="author" type="text" placeholder="author" onChange={this.hanldeChange}/>
-                <input type="button" value="Guardar" onClick={this.hanldeFetch}/>
+                <input type="button" value="Save" onClick={this.hanldeFetch}/>
             </form>
         )
     }

@@ -1,10 +1,13 @@
 import React from 'react'
 import { render } from 'react-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import App from './containers'
 
-const container = document.getElementById('wrapp')
-
-
-render(<App/>, container)
+render(
+    <Router>
+        <App/>
+    </Router>,
+    document.getElementById('wrapp')
+)
 
